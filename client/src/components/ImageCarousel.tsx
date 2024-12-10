@@ -33,6 +33,7 @@ const imageDescriptions = [
 
 export default function ImageCarousel() {
   const [loadedImages, setLoadedImages] = useState<string[]>([]);
+  const [showHint, setShowHint] = useState(true);
   const [emblaRef] = useEmblaCarousel(
     {
       loop: true,
@@ -67,8 +68,46 @@ export default function ImageCarousel() {
     });
   }, []);
 
+  useEffect(() => {
+    const handleInteraction = () => {
+      setShowHint(false);
+    };
+
+    const timer = setTimeout(() => {
+      setShowHint(false);
+    }, 5000); // Hide after 5 seconds even without interaction
+
+    if (emblaRef.current) {
+      emblaRef.current.on('select', handleInteraction);
+      emblaRef.current.on('pointerDown', handleInteraction);
+    }
+
+    return () => {
+      clearTimeout(timer);
+      if (emblaRef.current) {
+        emblaRef.current.off('select', handleInteraction);
+        emblaRef.current.off('pointerDown', handleInteraction);
+      }
+    };
+  }, []);
+
   return (
-    <div className="w-full max-w-6xl mx-auto">
+    <div className="w-full max-w-6xl mx-auto relative">
+      {showHint && (
+        <div 
+          className="absolute inset-y-0 left-0 z-10 pointer-events-none md:hidden
+                     flex items-center px-4 animate-fadeOut"
+          style={{
+            animation: 'fadeOut 0.5s ease-in forwards',
+            animationDelay: '4.5s'
+          }}
+        >
+          <div className="bg-black/50 text-white px-4 py-2 rounded-full backdrop-blur-sm
+                        animate-slideLeft">
+            Slide Left
+          </div>
+        </div>
+      )}
       <Carousel 
         className="w-full"
         opts={{
