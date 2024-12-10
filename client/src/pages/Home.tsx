@@ -21,7 +21,7 @@ export default function Home() {
           <CountdownTimer targetDate="2024-12-18T12:00:00" />
           <Button 
             size="lg" 
-            className="mt-8 bg-primary hover:bg-primary/90"
+            className="mt-8 bg-emerald-500 hover:bg-emerald-600 shadow-lg shadow-emerald-500/50 transition-all duration-300 hover:shadow-emerald-500/70 hover:scale-105 rounded-full px-8"
             onClick={() => document.getElementById('tickets')?.scrollIntoView({ behavior: 'smooth' })}
           >
             Book Your Seat
