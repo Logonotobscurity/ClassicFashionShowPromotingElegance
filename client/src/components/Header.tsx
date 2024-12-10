@@ -9,7 +9,8 @@ export default function Header() {
             <img 
               src="/assets/logo.webp" 
               alt="Classic Fashion Show" 
-              className="h-12 w-auto"
+              className="h-16 w-auto object-contain"
+              style={{ filter: 'brightness(1.2)' }}
             />
           </Link>
           <Link href="/#tickets">

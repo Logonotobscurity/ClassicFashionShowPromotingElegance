@@ -7,7 +7,12 @@ export default function Footer() {
       <div className="container mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="flex items-center gap-4">
-            <img src="/assets/logo.webp" alt="Classic Fashion Show" className="h-10 w-auto" />
+            <img 
+              src="/assets/logo.webp" 
+              alt="Classic Fashion Show" 
+              className="h-12 w-auto object-contain"
+              style={{ filter: 'brightness(1.2)' }}
+            />
           </div>
           
           <div className="flex gap-6">
