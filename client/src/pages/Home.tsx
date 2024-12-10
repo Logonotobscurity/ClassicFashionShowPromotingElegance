@@ -12,7 +12,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative h-screen flex items-center text-white" 
         style={{
-          background: "linear-gradient(rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.3) 100%), url('/assets/hero page image.jpeg') center/cover"
+          background: "linear-gradient(rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.3) 100%), url('/assets/hero page image.webp') center/cover"
         }}>
         <div className="container mx-auto">
           <div className="relative flex flex-col space-y-6 px-4 md:px-0">
