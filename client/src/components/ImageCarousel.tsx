@@ -23,21 +23,24 @@ const images = [
 
 export default function ImageCarousel() {
   const [loadedImages, setLoadedImages] = useState<string[]>([]);
-  const [emblaRef] = useEmblaCarousel({
-    loop: true,
-    align: "center",
-    slidesToScroll: 1,
-    duration: 20,
-    skipSnaps: false
-  }, [
-    Autoplay({
-      delay: 3000,
-      stopOnInteraction: false,
-      stopOnMouseEnter: false,
-      playOnInit: true,
-      rootNode: (emblaRoot) => emblaRoot.parentElement,
-    })
-  ]);
+  const [emblaRef] = useEmblaCarousel(
+    {
+      loop: true,
+      align: "center",
+      slidesToScroll: 1,
+      duration: 30,
+      skipSnaps: false,
+      startIndex: Math.floor(Math.random() * images.length),
+    },
+    [
+      Autoplay({
+        delay: 3000,
+        stopOnInteraction: true,
+        stopOnMouseEnter: true,
+        playOnInit: true,
+      })
+    ]
+  );
 
   useEffect(() => {
     // Preload images
@@ -63,7 +66,7 @@ export default function ImageCarousel() {
           <CarouselContent>
             {images.map((src, index) => (
               <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                <div className="aspect-square relative rounded-lg overflow-hidden group cursor-pointer transform transition-all duration-500 ease-in-out hover:z-10">
+                <div className="aspect-square relative rounded-lg overflow-hidden group cursor-pointer transform transition-all duration-500 ease-in-out hover:z-10 hover:shadow-xl">
                   {loadedImages.includes(src) ? (
                     <>
                       <img 
