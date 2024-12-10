@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
-import useEmblaCarousel from "embla-carousel-react";
+import useEmblaCarousel, { type EmblaCarouselType } from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 
 // WebP optimized images for better performance
@@ -17,7 +17,7 @@ const images = [
   "./assets/collections/fashion-6.webp",
   "./assets/collections/fashion-7.webp",
   "./assets/collections/fashion-8.webp"
-];
+].sort(() => Math.random() - 0.5); // Shuffle images on load
 
 // Image descriptions for accessibility
 const imageDescriptions = [
@@ -34,27 +34,38 @@ const imageDescriptions = [
 export default function ImageCarousel() {
   const [loadedImages, setLoadedImages] = useState<string[]>([]);
   const [showHint, setShowHint] = useState(true);
-  const [emblaRef] = useEmblaCarousel(
+  const [emblaRef, emblaApi] = useEmblaCarousel(
     {
       loop: true,
-      align: "center",
+      align: "start",
       slidesToScroll: 1,
-      duration: 20,
+      duration: 30,
       startIndex: 0,
-      dragFree: false,
+      dragFree: true,
       containScroll: "trimSnaps",
-      direction: "ltr"
+      direction: "ltr",
+      skipSnaps: false,
+      inViewThreshold: 0.7,
     },
     [
       Autoplay({
-        delay: 3000,
+        delay: 2000,
         stopOnInteraction: false,
-        stopOnMouseEnter: false,
+        stopOnMouseEnter: true,
         playOnInit: true,
-        rootNode: (emblaRoot) => emblaRoot.parentElement
+        rootNode: (emblaRoot) => emblaRoot.parentElement as HTMLElement
       })
     ]
   );
+
+  const [prevBtnEnabled, setPrevBtnEnabled] = useState(false);
+  const [nextBtnEnabled, setNextBtnEnabled] = useState(false);
+
+  const onSelect = useCallback((api: EmblaCarouselType) => {
+    if (!api) return;
+    setPrevBtnEnabled(api.canScrollPrev());
+    setNextBtnEnabled(api.canScrollNext());
+  }, []);
 
   useEffect(() => {
     // Preload images
@@ -68,81 +79,86 @@ export default function ImageCarousel() {
   }, []);
 
   useEffect(() => {
-    const handleInteraction = () => {
-      setShowHint(false);
-    };
+    // Preload images
+    images.forEach(src => {
+      const img = new Image();
+      img.src = src;
+      img.onload = () => {
+        setLoadedImages(prev => [...prev, src]);
+      };
+    });
+
+    // Setup carousel event handlers
+    if (emblaApi) {
+      emblaApi.on('select', () => {
+        onSelect(emblaApi);
+        setShowHint(false);
+      });
+      
+      emblaApi.on('pointerDown', () => setShowHint(false));
+      
+      // Initial state
+      onSelect(emblaApi);
+    }
 
     const timer = setTimeout(() => {
       setShowHint(false);
-    }, 5000); // Hide after 5 seconds even without interaction
-
-    if (emblaRef.current) {
-      emblaRef.current.on('select', handleInteraction);
-      emblaRef.current.on('pointerDown', handleInteraction);
-    }
+    }, 4000); // Hide hint after 4 seconds
 
     return () => {
       clearTimeout(timer);
-      if (emblaRef.current) {
-        emblaRef.current.off('select', handleInteraction);
-        emblaRef.current.off('pointerDown', handleInteraction);
+      if (emblaApi) {
+        emblaApi.off('select', () => onSelect(emblaApi));
       }
     };
-  }, []);
+  }, [emblaApi, onSelect]);
 
   return (
-    <div className="w-full max-w-6xl mx-auto relative">
+    <div className="w-full max-w-7xl mx-auto relative">
       {showHint && (
         <div 
           className="absolute inset-y-0 left-0 z-10 pointer-events-none md:hidden
-                     flex items-center px-4 animate-fadeOut"
+                     flex items-center px-4"
           style={{
             animation: 'fadeOut 0.5s ease-in forwards',
-            animationDelay: '4.5s'
+            animationDelay: '3.5s'
           }}
         >
           <div className="bg-black/50 text-white px-4 py-2 rounded-full backdrop-blur-sm
                         animate-slideLeft">
-            Slide Left
+            Swipe Left
           </div>
         </div>
       )}
-      <Carousel 
-        className="w-full"
-        opts={{
-          align: "center",
-          loop: true,
-        }}
-      >
-        <div className="relative overflow-hidden" ref={emblaRef}>
-          <CarouselContent>
-            {images.map((src, index) => (
-              <CarouselItem key={index} className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4">
-                <div className="aspect-[3/4] relative rounded-lg overflow-hidden group cursor-pointer transform transition-all duration-500 ease-in-out hover:shadow-xl mx-2">
-                  {loadedImages.includes(src) ? (
-                    <>
-                      <img 
-                        src={src} 
-                        alt={imageDescriptions[index]}
-                        className="w-full h-full object-cover transition-all duration-500 ease-in-out transform group-hover:scale-105"
-                        style={{
-                          willChange: 'transform',
-                          backfaceVisibility: 'hidden'
-                        }}
-                      />
-                      <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-all duration-300" />
-                    </>
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center bg-muted">
-                      <div className="animate-pulse w-full h-full bg-muted-foreground/10" />
-                    </div>
-                  )}
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
+      <div className="relative overflow-hidden" ref={emblaRef}>
+        <div className="flex touch-pan-y">
+          {images.map((src, index) => (
+            <div key={index} className="flex-[0_0_100%] min-w-0 sm:flex-[0_0_50%] md:flex-[0_0_33.33%] lg:flex-[0_0_25%] pl-4 relative">
+              <div className="aspect-[3/4] relative rounded-lg overflow-hidden group cursor-pointer transform transition-all duration-500 ease-in-out hover:shadow-xl">
+                {loadedImages.includes(src) ? (
+                  <>
+                    <img 
+                      src={src} 
+                      alt={imageDescriptions[index]}
+                      className="w-full h-full object-cover transition-transform duration-500 ease-in-out transform group-hover:scale-105"
+                      loading="lazy"
+                      style={{
+                        willChange: 'transform',
+                        backfaceVisibility: 'hidden'
+                      }}
+                    />
+                    <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  </>
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center bg-muted">
+                    <div className="animate-pulse w-full h-full bg-muted-foreground/10" />
+                  </div>
+                )}
+              </div>
+            </div>
+          ))}
         </div>
-      </Carousel>
+      </div>
     </div>
   );
 }
