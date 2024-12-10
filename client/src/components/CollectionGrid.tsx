@@ -6,14 +6,12 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 const categories = [
   { id: 'all', label: 'All Collections' },
   { id: 'classic', label: 'Classic' },
-  { id: 'contemporary', label: 'Contemporary' },
-  { id: 'evening', label: 'Evening Wear' }
+  { id: 'contemporary', label: 'Contemporary' }
 ];
 
 const collections = {
-  classic: ['fashion-1.webp', 'fashion-3.webp', 'fashion-5.webp'],
-  contemporary: ['fashion-2.webp', 'fashion-6.webp', 'fashion-8.webp'],
-  evening: ['fashion-4.webp', 'fashion-7.webp']
+  classic: ['fashion-1.webp', 'fashion-3.webp', 'fashion-5.webp', 'fashion-4.webp'],
+  contemporary: ['fashion-2.webp', 'fashion-6.webp', 'fashion-8.webp', 'fashion-7.webp']
 };
 
 export default function CollectionGrid() {
