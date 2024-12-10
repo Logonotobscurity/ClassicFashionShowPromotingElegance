@@ -26,12 +26,17 @@ export default function ImageCarousel() {
       loop: true,
       align: "center",
       slidesToScroll: 1,
+      dragFree: true,
+      skipSnaps: true,
+      inViewThreshold: 0.7,
+      speed: 7,
     },
     [
       Autoplay({ 
-        delay: 3000,
+        delay: 2000,
         stopOnInteraction: false,
-        stopOnMouseEnter: true
+        stopOnMouseEnter: true,
+        playOnInit: true,
       })
     ]
   );
@@ -49,12 +54,13 @@ export default function ImageCarousel() {
           <CarouselContent>
             {images.map((src, index) => (
               <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                <div className="aspect-square relative rounded-lg overflow-hidden group">
+                <div className="aspect-square relative rounded-lg overflow-hidden group cursor-pointer transform transition-all duration-500 ease-in-out hover:z-10">
                   <img 
                     src={src} 
                     alt={`Fashion Collection ${index + 1}`}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                    className="w-full h-full object-cover transition-all duration-700 ease-in-out transform group-hover:scale-110"
                   />
+                  <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
               </CarouselItem>
             ))}
