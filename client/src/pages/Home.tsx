@@ -15,23 +15,28 @@ export default function Home() {
           background: "linear-gradient(135deg, rgba(0,128,0,0.6) 0%, rgba(0,0,0,0.4) 100%), url('/assets/hero page image.jpeg') center/cover"
         }}>
         <div className="container mx-auto">
-          <div className="relative flex flex-col space-y-6">
+          <div className="relative flex flex-col space-y-6 px-4 md:px-0">
             <img 
               src="/assets/logo.webp" 
               alt="Classic Fashion Show" 
-              className="absolute top-[-100px] left-4 h-40 w-auto object-contain"
+              className="absolute top-[-100px] left-4 h-32 md:h-40 w-auto object-contain"
             />
-            <div className="mt-20 pl-4">
-              <h1 className="text-6xl font-bold text-white drop-shadow-lg">Classic Fashion Show</h1>
-              <p className="text-2xl mt-4 text-white/90 drop-shadow-md">"Promoting Elegance"</p>
-              <p className="text-xl mt-2 text-white/80 drop-shadow-md">December 18th, 2024 • Amazing Place Event Centre, Akure</p>
-              <div className="mt-8">
+            <div className="mt-20 flex flex-col items-center text-center">
+              <h1 className="text-4xl md:text-6xl font-bold text-white drop-shadow-lg">Classic Fashion Show</h1>
+              <p className="text-xl md:text-2xl mt-4 text-white/90 drop-shadow-md">"Promoting Elegance"</p>
+              <p className="text-lg md:text-xl mt-2 text-white/80 drop-shadow-md">December 18th, 2024 • Amazing Place Event Centre, Akure</p>
+              <div className="mt-8 w-full max-w-xl">
                 <CountdownTimer targetDate="2024-12-18T12:00:00" />
               </div>
               <Button
                 size="lg"
                 className="mt-8 bg-white/10 hover:bg-white/20 text-white border border-white/20 backdrop-blur-sm transition-all duration-300 hover:scale-105"
-                onClick={() => document.getElementById('tickets')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => {
+                  const element = document.getElementById('tickets');
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
+                }}
               >
                 Book Your Seat
               </Button>

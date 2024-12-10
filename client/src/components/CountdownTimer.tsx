@@ -34,11 +34,11 @@ export default function CountdownTimer({ targetDate }: Props) {
   }, [targetDate]);
 
   return (
-    <div className="flex gap-4 justify-center">
+    <div className="flex gap-2 md:gap-4 justify-center">
       {Object.entries(timeLeft).map(([unit, value]) => (
-        <Card key={unit} className="p-4 w-24 bg-black/75 backdrop-blur-md border-primary/50 shadow-lg">
-          <div className="text-3xl font-bold text-center text-white">{value}</div>
-          <div className="text-sm uppercase text-center text-white/90">{unit}</div>
+        <Card key={unit} className="p-2 md:p-4 w-16 md:w-24 bg-black/75 backdrop-blur-md border-primary/50 shadow-lg">
+          <div className="text-xl md:text-3xl font-bold text-center text-white">{value}</div>
+          <div className="text-xs md:text-sm uppercase text-center text-white/90">{unit}</div>
         </Card>
       ))}
     </div>
