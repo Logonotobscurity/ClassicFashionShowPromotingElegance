@@ -8,7 +8,7 @@ export function registerRoutes(app: Express): Server {
   // API Routes
   app.post("/api/newsletter", async (req, res) => {
     try {
-      const { email } = req.body;
+      const { email, name } = req.body;
       
       // Check if already subscribed
       const existing = await db.query.subscribers.findFirst({
@@ -21,13 +21,14 @@ export function registerRoutes(app: Express): Server {
 
       await db.insert(subscribers).values({
         email,
+        name,
         createdAt: new Date(),
       });
 
       try {
         // Send welcome email
         const { sendWelcomeEmail } = await import('./utils/email');
-        const emailSent = await sendWelcomeEmail(email);
+        const emailSent = await sendWelcomeEmail(email, name);
         
         res.status(200).json({ 
           message: "Subscribed successfully",

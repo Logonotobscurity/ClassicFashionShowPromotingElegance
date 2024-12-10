@@ -27,15 +27,15 @@ transporter.verify(function(error, success) {
 });
 
 // Email templates
-const welcomeEmailTemplate = (subscriberEmail: string) => ({
+const welcomeEmailTemplate = (subscriberEmail: string, subscriberName: string) => ({
   from: `Classic Fashion Show <${process.env.ZOHO_EMAIL}>`,
   to: subscriberEmail,
   subject: 'Welcome to Classic Fashion Show Newsletter!',
   html: `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
       <img src="https://classicfashion.africa/assets/logo.webp" alt="Classic Fashion Show" style="max-width: 200px; margin: 20px 0;">
-      <h1 style="color: #1a5d1a;">Welcome to Classic Fashion Show!</h1>
-      <p>Thank you for subscribing to our newsletter. We're excited to keep you updated about our upcoming fashion show on December 18th, 2024.</p>
+      <h1 style="color: #1a5d1a;">Welcome ${subscriberName}!</h1>
+      <p>Thank you for subscribing to the Classic Fashion Show newsletter. We're excited to keep you updated about our upcoming fashion show on December 18th, 2024.</p>
       <p>You'll receive exclusive updates about:</p>
       <ul>
         <li>Event preparations</li>
@@ -52,7 +52,7 @@ const welcomeEmailTemplate = (subscriberEmail: string) => ({
 });
 
 // Send welcome email to new subscribers
-export async function sendWelcomeEmail(email: string): Promise<boolean> {
+export async function sendWelcomeEmail(email: string, name: string): Promise<boolean> {
   try {
     // Log attempt
     console.log(`Attempting to send welcome email to ${email}`);
@@ -61,7 +61,7 @@ export async function sendWelcomeEmail(email: string): Promise<boolean> {
     await transporter.verify();
     
     // Send email
-    const info = await transporter.sendMail(welcomeEmailTemplate(email));
+    const info = await transporter.sendMail(welcomeEmailTemplate(email, name));
     console.log('Welcome email sent successfully:', {
       messageId: info.messageId,
       recipient: email,
