@@ -3,10 +3,12 @@ import Home from "./pages/Home";
 
 function App() {
   return (
-    <Switch>
-      <Route path="/" component={Home} />
-      <Route>404 Page Not Found</Route>
-    </Switch>
+    <div className="app">
+      <Switch>
+        <Route path="/" component={Home} />
+        <Route>404 Page Not Found</Route>
+      </Switch>
+    </div>
   );
 }
 
