@@ -24,16 +24,18 @@ export default function ImageCarousel() {
   const [emblaRef] = useEmblaCarousel(
     {
       loop: true,
-      align: "center",
+      align: "start",
       slidesToScroll: 1,
-      duration: 30,
-      skipSnaps: true,
-      startIndex: Math.floor(Math.random() * images.length),
-      dragFree: false
+      duration: 25,
+      skipSnaps: false,
+      startIndex: 0,
+      dragFree: true,
+      containScroll: "trimSnaps",
+      direction: "ltr"
     },
     [
       Autoplay({
-        delay: 3000,
+        delay: 2000,
         stopOnInteraction: false,
         stopOnMouseEnter: false,
         playOnInit: true,
