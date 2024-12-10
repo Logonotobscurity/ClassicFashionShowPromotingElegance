@@ -1,4 +1,5 @@
-import { FaTwitter, FaInstagram } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+import { SiThreads } from "react-icons/si";
 
 export default function Footer() {
   return (
@@ -8,13 +9,19 @@ export default function Footer() {
           <div className="text-2xl font-bold">Classic Fashion Show</div>
           
           <div className="flex gap-6">
-            <a href="https://twitter.com" className="text-2xl hover:text-primary">
-              <FaTwitter />
-            </a>
-            <a href="https://instagram.com" className="text-2xl hover:text-primary">
+            <a href="https://www.instagram.com/classics__fashionova/profilecard" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               className="text-2xl hover:text-primary">
               <FaInstagram />
             </a>
-            <a href="mailto:contact@classicfashion.show" className="hover:text-primary">
+            <a href="https://www.threads.net/@boi_classics?igshid=ZGUzMzM3NWJiOQ==" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               className="text-2xl hover:text-primary">
+              <SiThreads />
+            </a>
+            <a href="mailto:info@classicfashion.africa" className="hover:text-primary">
               Email Us
             </a>
           </div>
