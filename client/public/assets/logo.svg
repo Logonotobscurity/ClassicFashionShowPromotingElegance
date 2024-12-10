@@ -1,0 +1,8 @@
+<svg width="300" height="100" viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg">
+  <text x="10" y="70" font-family="Arial" font-size="48" font-weight="bold" fill="#333">
+    CLASSIC
+  </text>
+  <text x="10" y="90" font-family="Arial" font-size="24" fill="#666">
+    FASHION
+  </text>
+</svg>

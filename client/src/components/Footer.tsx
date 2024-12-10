@@ -7,8 +7,7 @@ export default function Footer() {
       <div className="container mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="flex items-center gap-4">
-            <img src="/assets/logo.webp" alt="Classic Fashion Show" className="h-12" />
-            <span className="text-2xl font-bold">Classic Fashion Show</span>
+            <img src="/assets/logo.svg" alt="Classic Fashion Show" className="h-10" />
           </div>
           
           <div className="flex gap-6">
