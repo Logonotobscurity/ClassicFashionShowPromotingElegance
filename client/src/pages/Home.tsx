@@ -28,6 +28,13 @@ export default function Home() {
               <div className="mt-8">
                 <CountdownTimer targetDate="2024-12-18T12:00:00" />
               </div>
+              <Button
+                size="lg"
+                className="mt-8 bg-white/10 hover:bg-white/20 text-white border border-white/20 backdrop-blur-sm transition-all duration-300 hover:scale-105"
+                onClick={() => document.getElementById('tickets')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                Book Your Seat
+              </Button>
             </div>
           </div>
         </div>
