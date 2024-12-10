@@ -6,7 +6,10 @@ export default function Footer() {
     <footer className="bg-background py-12">
       <div className="container mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="text-2xl font-bold">Classic Fashion Show</div>
+          <div className="flex items-center gap-4">
+            <img src="/assets/logo.webp" alt="Classic Fashion Show" className="h-12" />
+            <span className="text-2xl font-bold">Classic Fashion Show</span>
+          </div>
           
           <div className="flex gap-6">
             <a href="https://www.instagram.com/classics__fashionova/profilecard" 
