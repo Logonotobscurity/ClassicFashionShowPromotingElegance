@@ -1,0 +1,46 @@
+import { useEffect, useState } from "react";
+import { Card } from "@/components/ui/card";
+
+interface TimeLeft {
+  days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
+}
+
+interface Props {
+  targetDate: string;
+}
+
+export default function CountdownTimer({ targetDate }: Props) {
+  const [timeLeft, setTimeLeft] = useState<TimeLeft>({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+
+  useEffect(() => {
+    const calculateTimeLeft = () => {
+      const difference = +new Date(targetDate) - +new Date();
+      
+      if (difference > 0) {
+        setTimeLeft({
+          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+          minutes: Math.floor((difference / 1000 / 60) % 60),
+          seconds: Math.floor((difference / 1000) % 60)
+        });
+      }
+    };
+
+    const timer = setInterval(calculateTimeLeft, 1000);
+    return () => clearInterval(timer);
+  }, [targetDate]);
+
+  return (
+    <div className="flex gap-4 justify-center">
+      {Object.entries(timeLeft).map(([unit, value]) => (
+        <Card key={unit} className="p-4 w-24 bg-black/50 backdrop-blur border-primary">
+          <div className="text-3xl font-bold">{value}</div>
+          <div className="text-sm uppercase">{unit}</div>
+        </Card>
+      ))}
+    </div>
+  );
+}
