@@ -39,18 +39,18 @@ export default function ImageCarousel() {
       loop: true,
       align: "start",
       slidesToScroll: 1,
-      duration: 35,
-      skipSnaps: false,
+      duration: 30,
+      skipSnaps: true,
       startIndex: 0,
-      dragFree: false,
+      dragFree: true,
       containScroll: "trimSnaps",
-      direction: "rtl"
+      direction: "ltr"
     },
     [
       Autoplay({
-        delay: 2000,
-        stopOnInteraction: false,
-        stopOnMouseEnter: false,
+        delay: 3000,
+        stopOnInteraction: true,
+        stopOnMouseEnter: true,
         playOnInit: true,
         rootNode: (emblaRoot) => emblaRoot.parentElement
       })
