@@ -19,7 +19,11 @@ export default function Home() {
           <p className="text-2xl">"Promoting Elegance"</p>
           <p className="text-xl">December 18th, 2024 • Amazing Place Event Centre, Akure</p>
           <CountdownTimer targetDate="2024-12-18T12:00:00" />
-          <Button size="lg" className="mt-8 bg-primary hover:bg-primary/90">
+          <Button 
+            size="lg" 
+            className="mt-8 bg-primary hover:bg-primary/90"
+            onClick={() => document.getElementById('tickets')?.scrollIntoView({ behavior: 'smooth' })}
+          >
             Book Your Seat
           </Button>
         </div>
@@ -42,7 +46,7 @@ export default function Home() {
       </section>
 
       {/* Tickets */}
-      <section className="py-20 bg-muted/30">
+      <section id="tickets" className="py-20 bg-muted/30">
         <div className="container mx-auto">
           <h2 className="text-4xl font-bold text-center mb-12">Get Your Tickets</h2>
           <TicketSection />
