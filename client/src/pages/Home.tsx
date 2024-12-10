@@ -3,6 +3,7 @@ import CountdownTimer from "../components/CountdownTimer";
 import EventSchedule from "../components/EventSchedule";
 import TicketSection from "../components/TicketSection";
 import ImageCarousel from "../components/ImageCarousel";
+import CollectionGrid from "../components/CollectionGrid";
 import Newsletter from "../components/Newsletter";
 import Footer from "../components/Footer";
 
@@ -49,7 +50,10 @@ export default function Home() {
       <section className="py-20 bg-white">
         <div className="container mx-auto">
           <h2 className="text-4xl font-bold text-center mb-12 text-[#1a5d1a]">Featured Collections</h2>
-          <ImageCarousel />
+          <div className="space-y-16">
+            <ImageCarousel />
+            <CollectionGrid />
+          </div>
         </div>
       </section>
 
