@@ -37,20 +37,19 @@ export default function ImageCarousel() {
   const [emblaRef] = useEmblaCarousel(
     {
       loop: true,
-      align: "start",
+      align: "center",
       slidesToScroll: 1,
-      duration: 30,
-      skipSnaps: true,
+      duration: 20,
       startIndex: 0,
-      dragFree: true,
+      dragFree: false,
       containScroll: "trimSnaps",
       direction: "ltr"
     },
     [
       Autoplay({
         delay: 3000,
-        stopOnInteraction: true,
-        stopOnMouseEnter: true,
+        stopOnInteraction: false,
+        stopOnMouseEnter: false,
         playOnInit: true,
         rootNode: (emblaRoot) => emblaRoot.parentElement
       })
@@ -118,16 +117,20 @@ export default function ImageCarousel() {
         <div className="relative overflow-hidden" ref={emblaRef}>
           <CarouselContent>
             {images.map((src, index) => (
-              <CarouselItem key={index} className="basis-full sm:basis-3/4 md:basis-1/2">
-                <div className="aspect-[3/4] md:aspect-[4/3] relative rounded-lg overflow-hidden group cursor-pointer transform transition-all duration-700 ease-in-out hover:shadow-xl">
+              <CarouselItem key={index} className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4">
+                <div className="aspect-[3/4] relative rounded-lg overflow-hidden group cursor-pointer transform transition-all duration-500 ease-in-out hover:shadow-xl mx-2">
                   {loadedImages.includes(src) ? (
                     <>
                       <img 
                         src={src} 
                         alt={imageDescriptions[index]}
-                        className="w-full h-full object-cover transition-transform duration-700 ease-in-out transform group-hover:scale-110"
+                        className="w-full h-full object-cover transition-all duration-500 ease-in-out transform group-hover:scale-105"
+                        style={{
+                          willChange: 'transform',
+                          backfaceVisibility: 'hidden'
+                        }}
                       />
-                      <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-all duration-300" />
                     </>
                   ) : (
                     <div className="w-full h-full flex items-center justify-center bg-muted">

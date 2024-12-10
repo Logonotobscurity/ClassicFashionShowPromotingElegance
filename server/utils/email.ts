@@ -1,7 +1,7 @@
 import nodemailer from 'nodemailer';
 import type { Transporter } from 'nodemailer';
 import QRCode from 'qrcode';
-import type { tickets } from '../db/schema';
+import type { tickets } from '@db/schema';
 
 // Create transporter for sending emails
 const transporter: Transporter = nodemailer.createTransport({
