@@ -26,12 +26,12 @@ export default function ImageCarousel() {
       loop: true,
       align: "start",
       slidesToScroll: 1,
-      duration: 25,
+      duration: 35,
       skipSnaps: false,
       startIndex: 0,
-      dragFree: true,
+      dragFree: false,
       containScroll: "trimSnaps",
-      direction: "ltr"
+      direction: "rtl"
     },
     [
       Autoplay({
