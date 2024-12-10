@@ -22,23 +22,21 @@ const images = [
 
 export default function ImageCarousel() {
   const [loadedImages, setLoadedImages] = useState<string[]>([]);
-  const options: EmblaOptionsType = {
+  const [emblaRef] = useEmblaCarousel({
     loop: true,
     align: "center",
     slidesToScroll: 1,
-    dragFree: true,
-    containScroll: "trimSnaps",
-  };
-
-  const [emblaRef] = useEmblaCarousel(
-    options,
-    [Autoplay({ 
-      delay: 2000,
+    duration: 20,
+    skipSnaps: false
+  }, [
+    Autoplay({
+      delay: 3000,
       stopOnInteraction: false,
-      stopOnMouseEnter: true,
+      stopOnMouseEnter: false,
       playOnInit: true,
-    })]
-  );
+      rootNode: (emblaRoot) => emblaRoot.parentElement,
+    })
+  ]);
 
   useEffect(() => {
     // Preload images
