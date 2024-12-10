@@ -28,16 +28,17 @@ export default function ImageCarousel() {
       loop: true,
       align: "center",
       slidesToScroll: 1,
-      duration: 30,
+      duration: 20,
       skipSnaps: false,
       startIndex: Math.floor(Math.random() * images.length),
+      dragFree: true
     },
     [
       Autoplay({
-        delay: 3000,
-        stopOnInteraction: true,
-        stopOnMouseEnter: true,
-        playOnInit: true,
+        delay: 2000,
+        stopOnInteraction: false,
+        stopOnMouseEnter: false,
+        playOnInit: true
       })
     ]
   );
@@ -66,7 +67,7 @@ export default function ImageCarousel() {
           <CarouselContent>
             {images.map((src, index) => (
               <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                <div className="aspect-square relative rounded-lg overflow-hidden group cursor-pointer transform transition-all duration-500 ease-in-out hover:z-10 hover:shadow-xl">
+                <div className="aspect-square relative rounded-lg overflow-hidden group cursor-pointer transform transition-all duration-500 ease-in-out hover:shadow-xl">
                   {loadedImages.includes(src) ? (
                     <>
                       <img 
@@ -86,8 +87,6 @@ export default function ImageCarousel() {
             ))}
           </CarouselContent>
         </div>
-        <CarouselPrevious className="hidden md:flex" />
-        <CarouselNext className="hidden md:flex" />
       </Carousel>
     </div>
   );
