@@ -65,8 +65,8 @@ export default function ImageCarousel() {
         <div className="relative overflow-hidden" ref={emblaRef}>
           <CarouselContent>
             {images.map((src, index) => (
-              <CarouselItem key={index} className="md:basis-1/2">
-                <div className="aspect-[4/3] relative rounded-lg overflow-hidden group cursor-pointer transform transition-all duration-700 ease-in-out hover:shadow-xl">
+              <CarouselItem key={index} className="basis-full sm:basis-3/4 md:basis-1/2">
+                <div className="aspect-[3/4] md:aspect-[4/3] relative rounded-lg overflow-hidden group cursor-pointer transform transition-all duration-700 ease-in-out hover:shadow-xl">
                   {loadedImages.includes(src) ? (
                     <>
                       <img 
