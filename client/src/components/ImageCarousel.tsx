@@ -10,14 +10,14 @@ import useEmblaCarousel, { type EmblaOptionsType } from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 
 const images = [
-  "WhatsApp Image 2024-12-09 at 7.38.04 PM-2.jpeg",
-  "WhatsApp Image 2024-12-09 at 7.35.22 PM.jpeg",
-  "WhatsApp Image 2024-12-09 at 7.35.22 PM-2.jpeg",
-  "WhatsApp Image 2024-12-09 at 7.38.04 PM.jpeg",
-  "WhatsApp Image 2024-12-09 at 7.38.04 PM-3.jpeg",
-  "WhatsApp Image 2024-12-09 at 7.35.22 PM-3.jpeg",
-  "WhatsApp Image 2024-12-09 at 7.35.20 PM.jpeg",
-  "image 1.jpeg"
+  "/assets/WhatsApp Image 2024-12-09 at 7.38.04 PM-2.jpeg",
+  "/assets/WhatsApp Image 2024-12-09 at 7.35.22 PM.jpeg",
+  "/assets/WhatsApp Image 2024-12-09 at 7.35.22 PM-2.jpeg",
+  "/assets/WhatsApp Image 2024-12-09 at 7.38.04 PM.jpeg",
+  "/assets/WhatsApp Image 2024-12-09 at 7.38.04 PM-3.jpeg",
+  "/assets/WhatsApp Image 2024-12-09 at 7.35.22 PM-3.jpeg",
+  "/assets/WhatsApp Image 2024-12-09 at 7.35.20 PM.jpeg",
+  "/assets/image 1.jpeg"
 ];
 
 export default function ImageCarousel() {
