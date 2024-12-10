@@ -28,17 +28,18 @@ export default function ImageCarousel() {
       loop: true,
       align: "center",
       slidesToScroll: 1,
-      duration: 20,
-      skipSnaps: false,
+      duration: 30,
+      skipSnaps: true,
       startIndex: Math.floor(Math.random() * images.length),
-      dragFree: true
+      dragFree: false
     },
     [
       Autoplay({
-        delay: 2000,
+        delay: 3000,
         stopOnInteraction: false,
         stopOnMouseEnter: false,
-        playOnInit: true
+        playOnInit: true,
+        rootNode: (emblaRoot) => emblaRoot.parentElement
       })
     ]
   );
