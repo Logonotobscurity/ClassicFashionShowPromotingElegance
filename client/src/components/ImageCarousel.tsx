@@ -7,16 +7,28 @@ import {
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 
-// Ensure all images are preloaded and properly served from the public directory
+// WebP optimized images for better performance
 const images = [
-  "./assets/collections/fashion-1.jpeg",
-  "./assets/collections/fashion-2.jpeg",
-  "./assets/collections/fashion-3.jpeg",
-  "./assets/collections/fashion-4.jpeg",
-  "./assets/collections/fashion-5.jpeg",
-  "./assets/collections/fashion-6.jpeg",
-  "./assets/collections/fashion-7.jpeg",
-  "./assets/collections/fashion-8.jpeg"
+  "./assets/collections/fashion-1.webp",
+  "./assets/collections/fashion-2.webp",
+  "./assets/collections/fashion-3.webp",
+  "./assets/collections/fashion-4.webp",
+  "./assets/collections/fashion-5.webp",
+  "./assets/collections/fashion-6.webp",
+  "./assets/collections/fashion-7.webp",
+  "./assets/collections/fashion-8.webp"
+];
+
+// Image descriptions for accessibility
+const imageDescriptions = [
+  "Elegant evening wear showcasing classic fashion",
+  "Contemporary fashion design with traditional elements",
+  "Sophisticated formal attire collection",
+  "Modern interpretation of classic fashion",
+  "Timeless fashion pieces in motion",
+  "Avant-garde classic fashion designs",
+  "Elegant female fashion collection",
+  "Classic men's fashion collection"
 ];
 
 export default function ImageCarousel() {
@@ -73,7 +85,7 @@ export default function ImageCarousel() {
                     <>
                       <img 
                         src={src} 
-                        alt={`Fashion Collection ${index + 1}`}
+                        alt={imageDescriptions[index]}
                         className="w-full h-full object-cover transition-transform duration-700 ease-in-out transform group-hover:scale-110"
                       />
                       <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

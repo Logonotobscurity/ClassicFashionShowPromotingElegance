@@ -46,7 +46,7 @@ export default function Home() {
       </section>
 
       {/* Featured Collections */}
-      <section className="py-20 bg-gradient-to-b from-white to-[#e8f3e8]">
+      <section className="py-20 bg-white">
         <div className="container mx-auto">
           <h2 className="text-4xl font-bold text-center mb-12 text-[#1a5d1a]">Featured Collections</h2>
           <ImageCarousel />
@@ -54,7 +54,7 @@ export default function Home() {
       </section>
 
       {/* Event Schedule */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gradient-to-b from-white to-[#f5f9f5]">
         <div className="container mx-auto">
           <h2 className="text-4xl font-bold text-center mb-12 text-[#1a5d1a]">Event Schedule</h2>
           <EventSchedule />
@@ -62,7 +62,7 @@ export default function Home() {
       </section>
 
       {/* Tickets */}
-      <section id="tickets" className="py-20 bg-gradient-to-b from-[#e8f3e8] to-white">
+      <section id="tickets" className="py-20 bg-white">
         <div className="container mx-auto">
           <h2 className="text-4xl font-bold text-center mb-12 text-[#1a5d1a]">Get Your Tickets</h2>
           <TicketSection />
