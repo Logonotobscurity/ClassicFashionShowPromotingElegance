@@ -5,8 +5,7 @@ import Header from "./components/Header";
 function App() {
   return (
     <div className="app">
-      <Header />
-      <main className="pt-16">
+      <main>
         <Switch>
           <Route path="/" component={Home} />
           <Route>404 Page Not Found</Route>

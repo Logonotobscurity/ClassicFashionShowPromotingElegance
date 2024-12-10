@@ -12,19 +12,23 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative h-screen flex items-center text-white" 
         style={{
-          background: "url('/assets/hero page image.jpeg') center/cover"
+          background: "linear-gradient(135deg, rgba(0,128,0,0.6) 0%, rgba(0,0,0,0.4) 100%), url('/assets/hero page image.jpeg') center/cover"
         }}>
         <div className="container mx-auto">
-          <div className="flex flex-col items-start space-y-6 p-4">
+          <div className="relative flex flex-col space-y-6">
             <img 
               src="/assets/logo.webp" 
               alt="Classic Fashion Show" 
-              className="h-32 w-auto object-contain mb-8"
+              className="absolute top-[-100px] left-4 h-40 w-auto object-contain"
             />
-            <h1 className="text-6xl font-bold">Classic Fashion Show</h1>
-            <p className="text-2xl">"Promoting Elegance"</p>
-            <p className="text-xl">December 18th, 2024 • Amazing Place Event Centre, Akure</p>
-            <CountdownTimer targetDate="2024-12-18T12:00:00" />
+            <div className="mt-20 pl-4">
+              <h1 className="text-6xl font-bold text-white drop-shadow-lg">Classic Fashion Show</h1>
+              <p className="text-2xl mt-4 text-white/90 drop-shadow-md">"Promoting Elegance"</p>
+              <p className="text-xl mt-2 text-white/80 drop-shadow-md">December 18th, 2024 • Amazing Place Event Centre, Akure</p>
+              <div className="mt-8">
+                <CountdownTimer targetDate="2024-12-18T12:00:00" />
+              </div>
+            </div>
           </div>
         </div>
       </section>
