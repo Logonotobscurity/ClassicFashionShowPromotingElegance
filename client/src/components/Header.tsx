@@ -7,9 +7,9 @@ export default function Header() {
         <nav className="flex items-center justify-between">
           <Link href="/">
             <img 
-              src="/assets/logo.svg" 
+              src="/assets/logo.webp" 
               alt="Classic Fashion Show" 
-              className="h-12"
+              className="h-12 w-auto"
             />
           </Link>
           <Link href="/#tickets">
