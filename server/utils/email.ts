@@ -107,18 +107,28 @@ const ticketEmailTemplate = async (ticket: typeof tickets.$inferSelect) => {
 // Send welcome email to new subscribers
 export async function sendWelcomeEmail(email: string, name: string): Promise<boolean> {
   try {
-    // Log attempt
-    console.log(`Attempting to send welcome email to ${email}`);
+    // Log attempt with timestamp
+    console.log(`[${new Date().toISOString()}] Attempting to send welcome email to ${email}`);
+    
+    // Log SMTP configuration (without sensitive data)
+    console.log('SMTP Configuration:', {
+      host: transporter.options.host,
+      port: transporter.options.port,
+      secure: transporter.options.secure,
+      auth: { user: process.env.ZOHO_EMAIL }
+    });
     
     // Verify SMTP connection before sending
     await transporter.verify();
+    console.log('SMTP connection verified successfully');
     
     // Send email
     const info = await transporter.sendMail(welcomeEmailTemplate(email, name));
     console.log('Welcome email sent successfully:', {
       messageId: info.messageId,
       recipient: email,
-      response: info.response
+      response: info.response,
+      timestamp: new Date().toISOString()
     });
     
     return true;
