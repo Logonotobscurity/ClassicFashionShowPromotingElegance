@@ -3,10 +3,8 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
-import useEmblaCarousel, { type EmblaOptionsType } from "embla-carousel-react";
+import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 
 // Ensure all images are preloaded and properly served from the public directory
@@ -56,7 +54,7 @@ export default function ImageCarousel() {
   }, []);
 
   return (
-    <div className="w-full max-w-4xl mx-auto">
+    <div className="w-full max-w-6xl mx-auto">
       <Carousel 
         className="w-full"
         opts={{
@@ -67,14 +65,14 @@ export default function ImageCarousel() {
         <div className="relative overflow-hidden" ref={emblaRef}>
           <CarouselContent>
             {images.map((src, index) => (
-              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                <div className="aspect-square relative rounded-lg overflow-hidden group cursor-pointer transform transition-all duration-500 ease-in-out hover:shadow-xl">
+              <CarouselItem key={index} className="md:basis-1/2">
+                <div className="aspect-[4/3] relative rounded-lg overflow-hidden group cursor-pointer transform transition-all duration-700 ease-in-out hover:shadow-xl">
                   {loadedImages.includes(src) ? (
                     <>
                       <img 
                         src={src} 
                         alt={`Fashion Collection ${index + 1}`}
-                        className="w-full h-full object-cover transition-all duration-700 ease-in-out transform group-hover:scale-110"
+                        className="w-full h-full object-cover transition-transform duration-700 ease-in-out transform group-hover:scale-110"
                       />
                       <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     </>
