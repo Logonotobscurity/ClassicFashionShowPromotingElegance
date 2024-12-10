@@ -12,7 +12,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center text-white py-20 md:py-0" 
         style={{
-          background: "linear-gradient(rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.3) 100%), url('/hero%20page%20image.webp') center/cover no-repeat"
+          background: "linear-gradient(rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.3) 100%), url('./hero page image.webp') center/cover no-repeat fixed"
         }}>
         <div className="container mx-auto px-4">
           <div className="relative flex flex-col space-y-6">

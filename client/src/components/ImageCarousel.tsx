@@ -9,14 +9,14 @@ import Autoplay from "embla-carousel-autoplay";
 
 // Ensure all images are preloaded and properly served from the public directory
 const images = [
-  "/assets/collections/fashion-1.jpeg",
-  "/assets/collections/fashion-2.jpeg",
-  "/assets/collections/fashion-3.jpeg",
-  "/assets/collections/fashion-4.jpeg",
-  "/assets/collections/fashion-5.jpeg",
-  "/assets/collections/fashion-6.jpeg",
-  "/assets/collections/fashion-7.jpeg",
-  "/assets/collections/fashion-8.jpeg"
+  "./assets/collections/fashion-1.jpeg",
+  "./assets/collections/fashion-2.jpeg",
+  "./assets/collections/fashion-3.jpeg",
+  "./assets/collections/fashion-4.jpeg",
+  "./assets/collections/fashion-5.jpeg",
+  "./assets/collections/fashion-6.jpeg",
+  "./assets/collections/fashion-7.jpeg",
+  "./assets/collections/fashion-8.jpeg"
 ];
 
 export default function ImageCarousel() {
