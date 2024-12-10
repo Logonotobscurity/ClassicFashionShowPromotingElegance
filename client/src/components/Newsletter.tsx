@@ -48,12 +48,22 @@ export default function Newsletter() {
         });
         form.reset();
       } else {
+        // Show specific error message from the server
+        const errorMessage = data.message || "Something went wrong. Please try again.";
         toast({
-          title: "Oops!",
-          description: data.message || "Something went wrong. Please try again.",
+          title: "Subscription Failed",
+          description: errorMessage,
           variant: "destructive",
           duration: 5000,
         });
+        
+        // If the email is already subscribed, clear the form
+        if (errorMessage.toLowerCase().includes("already subscribed")) {
+          form.reset();
+        }
+
+        // Log the error for debugging
+        console.error("Subscription error:", { status: response.status, message: errorMessage });
       }
     } catch (error) {
       console.error("Newsletter subscription error:", error);
