@@ -12,7 +12,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center text-white" 
         style={{
-          background: "linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/hero page image.jpeg') center/cover"
+          background: "linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/hero-background.jpeg') center/cover"
         }}>
         <div className="text-center space-y-6 p-4">
           <h1 className="text-6xl font-bold">Classic Fashion Show</h1>
