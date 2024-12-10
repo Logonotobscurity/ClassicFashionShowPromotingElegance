@@ -5,6 +5,7 @@ import { subscribers } from "../db/schema";
 import { eq } from "drizzle-orm";
 
 export function registerRoutes(app: Express): Server {
+  // API Routes
   app.post("/api/newsletter", async (req, res) => {
     try {
       const { email } = req.body;
@@ -25,8 +26,14 @@ export function registerRoutes(app: Express): Server {
 
       res.status(200).json({ message: "Subscribed successfully" });
     } catch (error) {
+      console.error("Newsletter subscription error:", error);
       res.status(500).json({ message: "Server error" });
     }
+  });
+
+  // Health check endpoint
+  app.get("/api/health", (req, res) => {
+    res.status(200).json({ status: "healthy" });
   });
 
   const httpServer = createServer(app);
