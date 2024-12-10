@@ -24,7 +24,23 @@ export function registerRoutes(app: Express): Server {
         createdAt: new Date(),
       });
 
-      res.status(200).json({ message: "Subscribed successfully" });
+      try {
+        // Send welcome email
+        const { sendWelcomeEmail } = await import('./utils/email');
+        const emailSent = await sendWelcomeEmail(email);
+        
+        res.status(200).json({ 
+          message: "Subscribed successfully",
+          emailSent
+        });
+      } catch (emailError) {
+        console.error("Error sending welcome email:", emailError);
+        // Still return 200 as the subscription was successful
+        res.status(200).json({ 
+          message: "Subscribed successfully, but there was an error sending the welcome email",
+          emailSent: false
+        });
+      }
     } catch (error) {
       console.error("Newsletter subscription error:", error);
       res.status(500).json({ message: "Server error" });
