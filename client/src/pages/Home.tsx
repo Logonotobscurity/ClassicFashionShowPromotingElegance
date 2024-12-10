@@ -12,11 +12,11 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center text-white" 
         style={{
-          background: "linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1509319117193-57bab727e09d') center/cover"
+          background: "linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/images/hero.jpeg') center/cover"
         }}>
         <div className="text-center space-y-6 p-4">
           <h1 className="text-6xl font-bold">Classic Fashion Show</h1>
-          <p className="text-2xl">"Fashion is Freedom"</p>
+          <p className="text-2xl">"Promoting Elegance"</p>
           <p className="text-xl">December 18th, 2024 • Amazing Place Event Centre, Akure</p>
           <CountdownTimer targetDate="2024-12-18T12:00:00" />
           <Button size="lg" className="mt-8 bg-primary hover:bg-primary/90">
