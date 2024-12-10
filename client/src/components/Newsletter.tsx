@@ -27,46 +27,56 @@ export default function Newsletter() {
     },
   });
 
-  const handleSubmit = async (values: z.infer<typeof formSchema>) => {
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-      const res = await fetch("/api/newsletter", {
+      const response = await fetch("/api/newsletter", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values)
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
       });
-      
-      const data = await res.json();
-      
-      if (res.ok) {
+
+      const data = await response.json();
+
+      if (response.ok) {
         toast({
-          title: "Welcome aboard!",
-          description: "Thanks for subscribing to our newsletter. Check your email for a welcome message!",
+          title: "Welcome aboard! 🎉",
+          description: "Thanks for subscribing! Check your email for a welcome message.",
           variant: "default",
+          duration: 5000,
         });
         form.reset();
       } else {
         toast({
-          title: "Subscription failed",
+          title: "Oops!",
           description: data.message || "Something went wrong. Please try again.",
           variant: "destructive",
+          duration: 5000,
         });
       }
     } catch (error) {
+      console.error("Newsletter subscription error:", error);
       toast({
         title: "Error",
-        description: "Something went wrong. Please try again.",
-        variant: "destructive"
+        description: "Unable to subscribe. Please try again later.",
+        variant: "destructive",
+        duration: 5000,
       });
     }
   };
 
   return (
     <section className="py-20 bg-primary text-primary-foreground">
-      <div className="container mx-auto text-center">
+      <div className="container mx-auto text-center px-4">
         <h2 className="text-4xl font-bold mb-4">Stay Updated</h2>
-        <p className="mb-8">Subscribe to our newsletter for updates and exclusive offers</p>
+        <p className="mb-8 text-lg">Subscribe to our newsletter for updates and exclusive offers</p>
+        
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(handleSubmit)} className="flex flex-col gap-4 max-w-md mx-auto">
+          <form 
+            onSubmit={form.handleSubmit(onSubmit)}
+            className="flex flex-col gap-4 max-w-md mx-auto"
+          >
             <FormField
               control={form.control}
               name="name"
@@ -76,13 +86,15 @@ export default function Newsletter() {
                     <Input
                       placeholder="Your name"
                       {...field}
-                      className="bg-white text-foreground"
+                      className="bg-white text-foreground h-12"
+                      autoComplete="name"
                     />
                   </FormControl>
-                  <FormMessage />
+                  <FormMessage className="text-red-200" />
                 </FormItem>
               )}
             />
+            
             <FormField
               control={form.control}
               name="email"
@@ -93,15 +105,23 @@ export default function Newsletter() {
                       type="email"
                       placeholder="Your email"
                       {...field}
-                      className="bg-white text-foreground"
+                      className="bg-white text-foreground h-12"
+                      autoComplete="email"
                     />
                   </FormControl>
-                  <FormMessage />
+                  <FormMessage className="text-red-200" />
                 </FormItem>
               )}
             />
-            <Button type="submit" variant="secondary" className="w-full">
-              Subscribe
+            
+            <Button 
+              type="submit" 
+              variant="secondary" 
+              size="lg"
+              className="w-full h-12 text-lg font-semibold"
+              disabled={form.formState.isSubmitting}
+            >
+              {form.formState.isSubmitting ? "Subscribing..." : "Subscribe"}
             </Button>
           </form>
         </Form>
