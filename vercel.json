@@ -6,14 +6,14 @@
       "use": "@vercel/static"
     },
     {
-      "src": "server/index.js",  // Change this if you're compiling TypeScript
+      "src": "server/index.ts",  // Change this if you're compiling TypeScript
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "/server/index.js"  // Ensure this points to the correct compiled file
+      "dest": "/server/index.ts"  // Ensure this points to the correct compiled file
     },
     {
       "src": "/assets/(.*)",
