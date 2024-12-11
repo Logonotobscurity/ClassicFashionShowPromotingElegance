@@ -12,10 +12,13 @@ export default function Home() {
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
       <section 
-        className="relative min-h-[100svh] flex items-center justify-center text-white pt-20 pb-12 md:py-0 overflow-hidden bg-cover bg-center bg-no-repeat" 
+        className="relative min-h-[100svh] flex items-center justify-center text-white pt-20 pb-12 md:py-0 overflow-hidden" 
         style={{
-          backgroundImage: "linear-gradient(rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.4) 100%), url('/assets/hero%20page%20image.webp')",
-          backgroundAttachment: 'scroll'
+          backgroundImage: "linear-gradient(rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.4) 100%), url('/assets/hero page image.jpeg')",
+          backgroundPosition: 'center',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+          backgroundAttachment: typeof window !== 'undefined' && /iPhone|iPad|iPod/i.test(window.navigator.userAgent) ? 'scroll' : 'fixed'
         }}>
         <div className="container mx-auto px-4 relative z-10">
           <div className="flex flex-col items-center mt-8 md:mt-0">
