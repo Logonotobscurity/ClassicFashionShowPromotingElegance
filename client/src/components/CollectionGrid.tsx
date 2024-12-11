@@ -10,7 +10,7 @@ const categories = [
 ];
 
 const collections = {
-  classic: ['collection1.webp', 'collection3.webp', 'collection4.webp'],
+  classic: ['collection 1.webp', 'collection3.webp', 'collection 4.webp'],
   contemporary: ['collection2.jpeg', 'collection6.webp', 'collection8.webp', 'collection7.webp']
 };
 
@@ -46,7 +46,7 @@ export default function CollectionGrid() {
                 <Card key={index} className="overflow-hidden group">
                   <div className="aspect-[3/4] relative">
                     <img
-                      src={`/assets/${image}`}
+                      src={`/${image}`}
                       alt={`Fashion collection item ${index + 1}`}
                       className="w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
                       loading="lazy"

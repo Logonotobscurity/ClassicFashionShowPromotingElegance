@@ -9,13 +9,13 @@ import Autoplay from "embla-carousel-autoplay";
 
 // WebP optimized images for better performance
 const images = [
-  "/assets/collection1.webp",
-  "/assets/collection2.jpeg",
-  "/assets/collection3.webp",
-  "/assets/collection4.webp",
-  "/assets/collection6.webp",
-  "/assets/collection7.webp",
-  "/assets/collection8.webp"
+  "/collection 1.webp",
+  "/collection2.jpeg",
+  "/collection3.webp",
+  "/collection 4.webp",
+  "/collection6.webp",
+  "/collection7.webp",
+  "/collection8.webp"
 ].sort(() => Math.random() - 0.5); // Shuffle images on load
 
 // Image descriptions for accessibility
