@@ -6,34 +6,33 @@
       "use": "@vercel/static"
     },
     {
-      "src": "server/index.ts",
+      "src": "server/index.js",  // Change this if you're compiling TypeScript
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "server/index.ts"
+      "dest": "/server/index.js"  // Ensure this points to the correct compiled file
     },
     {
       "src": "/assets/(.*)",
-      "dest": "client/public/assets/$1"
+      "dest": "/client/public/assets/$1"
     },
     {
       "src": "/(.*)",
-      "dest": "client/index.html"
+      "dest": "/client/index.html"
     }
   ],
   "env": {
-    "DATABASE_URL": "@database_url",
-    "ZOHO_EMAIL": "@zoho_email",
-    "ZOHO_APP_PASSWORD": "@zoho_app_password",
+    "DATABASE_URL": "postgresql://neondb_owner:AaduLjziCF05@ep-snowy-sea-a5o8auys-pooler.us-east-2.aws.neon.tech/neondb?sslmode=require",
+    "ZOHO_EMAIL": "info@classicfashion.africa",
+    "ZOHO_APP_PASSWORD": "ClassicOmope",
     "PAYSTACK_SECRET_KEY": "@paystack_secret_key"
-  }
-  ,
-    "functions": {
-      "server/**/*.js": {
-        "runtime": "nodejs20.x" // Use Node.js version as per your Replit config
-      }
+  },
+  "functions": {
+    "server/**/*.js": {
+      "runtime": "nodejs20.x" // Ensure this matches your Node.js version
     }
   }
+}
