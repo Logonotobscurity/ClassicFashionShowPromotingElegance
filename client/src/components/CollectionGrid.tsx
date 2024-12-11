@@ -46,7 +46,7 @@ export default function CollectionGrid() {
                 <Card key={index} className="overflow-hidden group">
                   <div className="aspect-[3/4] relative">
                     <img
-                      src={`/assets/collections/${image}`}
+                      src={`/assets/${image}`}
                       alt={`Fashion collection item ${index + 1}`}
                       className="w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
                       loading="lazy"

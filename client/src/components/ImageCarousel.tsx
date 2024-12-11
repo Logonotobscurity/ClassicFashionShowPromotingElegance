@@ -9,13 +9,13 @@ import Autoplay from "embla-carousel-autoplay";
 
 // WebP optimized images for better performance
 const images = [
-  "/assets/collections/collection1.webp",
-  "/assets/collections/collection2.jpeg",
-  "/assets/collections/collection3.webp",
-  "/assets/collections/collection4.webp",
-  "/assets/collections/collection6.webp",
-  "/assets/collections/collection7.webp",
-  "/assets/collections/collection8.webp"
+  "/assets/collection1.webp",
+  "/assets/collection2.jpeg",
+  "/assets/collection3.webp",
+  "/assets/collection4.webp",
+  "/assets/collection6.webp",
+  "/assets/collection7.webp",
+  "/assets/collection8.webp"
 ].sort(() => Math.random() - 0.5); // Shuffle images on load
 
 // Image descriptions for accessibility
