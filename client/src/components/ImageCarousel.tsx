@@ -11,7 +11,6 @@ import Autoplay from "embla-carousel-autoplay";
 const images = [
   "/collection 1.webp",
   "/collection2.jpeg",
-  "/collection3.webp",
   "/collection 4.webp",
   "/collection6.webp",
   "/collection7.webp",
