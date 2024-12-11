@@ -1,37 +1,39 @@
 {
   "version": 2,
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist/public",
+  "installCommand": "npm install",
   "builds": [
     {
-      "src": "client/**",
+      "src": "package.json",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "dist/public"
+        "zeroConfig": true
       }
     },
     {
       "src": "server/index.ts",
-      "use": "@vercel/node"
+      "use": "@vercel/node",
+      "config": {
+        "includeFiles": ["dist/**"]
+      }
     }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "/server/index.ts"
+      "dest": "server/index.ts"
     },
     {
-      "src": "^/assets/(.*)",
-      "dest": "/client/public/assets/$1"
-    },
-    {
-      "src": "^/favicon.svg",
-      "dest": "/client/public/favicon.svg"
+      "src": "/assets/(.*)",
+      "dest": "/dist/public/assets/$1"
     },
     {
       "handle": "filesystem"
     },
     {
       "src": "/(.*)",
-      "dest": "/client/index.html"
+      "dest": "/dist/public/index.html"
     }
   ],
   "env": {
