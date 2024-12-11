@@ -1,40 +1,44 @@
 {
   "version": 2,
   "buildCommand": "npm run build",
-  "outputDirectory": "dist/public",
+  "outputDirectory": "dist",
   "installCommand": "npm install",
   "builds": [
     {
       "src": "package.json",
       "use": "@vercel/static-build",
       "config": {
-        "zeroConfig": true
+        "zeroConfig": true,
+        "includeFiles": ["dist/**"]
       }
     },
     {
       "src": "server/index.ts",
-      "use": "@vercel/node",
-      "config": {
-        "includeFiles": ["dist/**"]
-      }
+      "use": "@vercel/node"
     }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "server/index.ts"
+      "dest": "/server/index.ts"
     },
     {
       "src": "/assets/(.*)",
-      "dest": "/dist/public/assets/$1"
+      "dest": "/assets/$1",
+      "headers": {
+        "cache-control": "public, max-age=31536000, immutable"
+      }
     },
     {
       "src": "/(.*)\\.(.+)",
-      "dest": "/dist/public/$1.$2"
+      "dest": "/$1.$2"
+    },
+    {
+      "handle": "filesystem"
     },
     {
       "src": "/(.*)",
-      "dest": "/dist/public/index.html"
+      "dest": "/index.html"
     }
   ],
   "env": {
@@ -42,6 +46,7 @@
     "ZOHO_EMAIL": "@zoho_email",
     "ZOHO_APP_PASSWORD": "@zoho_app_password",
     "PAYSTACK_SECRET_KEY": "@paystack_secret_key",
-    "APP_URL": "@app_url"
+    "APP_URL": "@app_url",
+    "NODE_ENV": "production"
   }
 }
