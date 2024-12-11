@@ -14,7 +14,7 @@ export default function Home() {
       <section 
         className="relative min-h-[100svh] flex items-center justify-center text-white pt-20 pb-12 md:py-0 overflow-hidden bg-cover bg-center bg-no-repeat" 
         style={{
-          backgroundImage: "linear-gradient(rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.4) 100%), url('/assets/hero-page.webp')",
+          backgroundImage: "linear-gradient(rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.4) 100%), url('/assets/hero page image.webp')",
           backgroundAttachment: 'scroll'
         }}>
         <div className="container mx-auto px-4 relative z-10">
