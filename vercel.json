@@ -23,5 +23,11 @@
       "src": "/(.*)",
       "dest": "client/index.html"
     }
-  ]
+  ],
+  "env": {
+    "DATABASE_URL": "@database_url",
+    "ZOHO_EMAIL": "@zoho_email",
+    "ZOHO_APP_PASSWORD": "@zoho_app_password",
+    "PAYSTACK_SECRET_KEY": "@paystack_secret_key"
+  }
 }
