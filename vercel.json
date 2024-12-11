@@ -30,4 +30,10 @@
     "ZOHO_APP_PASSWORD": "@zoho_app_password",
     "PAYSTACK_SECRET_KEY": "@paystack_secret_key"
   }
-}
+  ,
+    "functions": {
+      "server/**/*.js": {
+        "runtime": "nodejs20.x" // Use Node.js version as per your Replit config
+      }
+    }
+  }
