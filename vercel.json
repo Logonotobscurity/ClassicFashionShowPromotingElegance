@@ -43,11 +43,5 @@
     "ZOHO_APP_PASSWORD": "@zoho_app_password",
     "PAYSTACK_SECRET_KEY": "@paystack_secret_key",
     "APP_URL": "@app_url"
-  },
-  "functions": {
-    "server/**": {
-      "runtime": "@vercel/node@20.x",
-      "maxDuration": 10
-    }
   }
 }
