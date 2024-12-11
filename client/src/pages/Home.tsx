@@ -30,7 +30,7 @@ export default function Home() {
               />
             </div>
             <div className="flex flex-col items-center text-center space-y-3 md:space-y-6">
-              <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold text-white drop-shadow-lg max-w-3xl leading-tight">
+              <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold text-white drop-shadow-lg max-w-3xl leading-tight font-['Marcellus']">
                 Classic Fashion Show
               </h1>
               <p className="text-lg sm:text-2xl md:text-3xl text-white/90 drop-shadow-md font-light">

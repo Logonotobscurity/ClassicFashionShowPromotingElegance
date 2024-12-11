@@ -11,7 +11,7 @@ const categories = [
 
 // Available collection images categorized by style
 const collections = {
-  classic: ['collection 1.webp', 'collection3.webp', 'collection 4.webp'],
+  classic: ['collection 1.webp', 'collection3.webp'],
   contemporary: ['collection2.jpeg', 'collection6.webp', 'collection7.webp', 'collection8.webp']
 };
 

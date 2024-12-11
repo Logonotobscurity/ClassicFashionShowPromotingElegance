@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Import Slovic font */
+@import url('https://fonts.googleapis.com/css2?family=Marcellus&display=swap');
+
 @layer base {
   * {
     @apply border-border;
