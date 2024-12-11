@@ -2,8 +2,11 @@
   "version": 2,
   "builds": [
     {
-      "src": "client/index.html",
-      "use": "@vercel/static"
+      "src": "client/**",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist/public"
+      }
     },
     {
       "src": "server/index.ts",
@@ -13,27 +16,35 @@
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "server/index.ts"
+      "dest": "/server/index.ts"
     },
     {
-      "src": "/assets/(.*)",
-      "dest": "client/public/assets/$1"
+      "src": "^/assets/(.*)",
+      "dest": "/client/public/assets/$1"
+    },
+    {
+      "src": "^/favicon.svg",
+      "dest": "/client/public/favicon.svg"
+    },
+    {
+      "handle": "filesystem"
     },
     {
       "src": "/(.*)",
-      "dest": "client/index.html"
+      "dest": "/client/index.html"
     }
   ],
   "env": {
     "DATABASE_URL": "@database_url",
     "ZOHO_EMAIL": "@zoho_email",
     "ZOHO_APP_PASSWORD": "@zoho_app_password",
-    "PAYSTACK_SECRET_KEY": "@paystack_secret_key"
-  }
-  ,
-    "functions": {
-      "server/**/*.js": {
-        "runtime": "nodejs20.x" // Use Node.js version as per your Replit config
-      }
+    "PAYSTACK_SECRET_KEY": "@paystack_secret_key",
+    "APP_URL": "@app_url"
+  },
+  "functions": {
+    "server/**": {
+      "runtime": "@vercel/node@20.x",
+      "maxDuration": 10
     }
   }
+}
