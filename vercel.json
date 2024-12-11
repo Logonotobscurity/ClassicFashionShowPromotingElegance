@@ -25,15 +25,14 @@
     }
   ],
   "env": {
-    "DATABASE_URL": "@database_url",
+    "DATABASE_URL": "postgresql://neondb_owner:AaduLjziCF05@ep-snowy-sea-a5o8auys-pooler.us-east-2.aws.neon.tech/neondb?sslmode=require",
     "ZOHO_EMAIL": "@zoho_email",
     "ZOHO_APP_PASSWORD": "@zoho_app_password",
     "PAYSTACK_SECRET_KEY": "@paystack_secret_key"
-  }
-  ,
-    "functions": {
-      "server/**/*.js": {
-        "runtime": "nodejs20.x" // Use Node.js version as per your Replit config
-      }
+  },
+  "functions": {
+    "server/**/*.ts": {
+      "runtime": "nodejs20.x"
     }
   }
+}
