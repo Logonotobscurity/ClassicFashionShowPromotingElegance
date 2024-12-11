@@ -9,14 +9,14 @@ import Autoplay from "embla-carousel-autoplay";
 
 // WebP optimized images for better performance
 const images = [
-  "./assets/collections/fashion-1.webp",
-  "./assets/collections/fashion-2.webp",
-  "./assets/collections/fashion-3.webp",
-  "./assets/collections/fashion-4.webp",
-  "./assets/collections/fashion-5.webp",
-  "./assets/collections/fashion-6.webp",
-  "./assets/collections/fashion-7.webp",
-  "./assets/collections/fashion-8.webp"
+  "/assets/collections/fashion-1.webp",
+  "/assets/collections/fashion-2.webp",
+  "/assets/collections/fashion-3.webp",
+  "/assets/collections/fashion-4.webp",
+  "/assets/collections/fashion-5.webp",
+  "/assets/collections/fashion-6.webp",
+  "/assets/collections/fashion-7.webp",
+  "/assets/collections/fashion-8.webp"
 ].sort(() => Math.random() - 0.5); // Shuffle images on load
 
 // Image descriptions for accessibility

@@ -7,7 +7,7 @@ export default function Header() {
         <nav className="flex items-center justify-center">
           <Link href="/">
             <img 
-              src="./assets/logo.webp" 
+              src="/assets/logo.webp" 
               alt="Classic Fashion Show" 
               className="h-16 w-auto object-contain"
             />
