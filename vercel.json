@@ -26,14 +26,15 @@
     },
     {
       "src": "/assets/(.*)",
-      "dest": "/dist/public/assets/$1"
+      "dest": "/assets/$1"
     },
     {
-      "handle": "filesystem"
+      "src": "/favicon.svg",
+      "dest": "/favicon.svg"
     },
     {
-      "src": "/(.*)",
-      "dest": "/dist/public/index.html"
+      "src": ".*",
+      "dest": "/index.html"
     }
   ],
   "env": {
