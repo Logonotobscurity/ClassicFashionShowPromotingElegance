@@ -10,8 +10,8 @@ const categories = [
 ];
 
 const collections = {
-  classic: ['fashion-1.webp', 'fashion-3.webp', 'fashion-5.webp', 'fashion-4.webp'],
-  contemporary: ['fashion-2.webp', 'fashion-6.webp', 'fashion-8.webp', 'fashion-7.webp']
+  classic: ['collection1.webp', 'collection3.webp', 'collection4.webp'],
+  contemporary: ['collection2.jpeg', 'collection6.webp', 'collection8.webp', 'collection7.webp']
 };
 
 export default function CollectionGrid() {
