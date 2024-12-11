@@ -76,7 +76,7 @@
     "tailwind-merge": "^2.5.4",
     "tailwindcss-animate": "^1.0.7",
     "vaul": "^1.1.0",
-    "vercel": "^39.2.0",
+    "vercel": "^32.3.0",
     "wouter": "^3.3.5",
     "ws": "^8.18.0",
     "zod": "^3.23.8"
@@ -93,6 +93,7 @@
     "@types/react-dom": "^18.3.3",
     "@types/ws": "^8.5.13",
     "@vitejs/plugin-react": "^4.3.4",
+    "@vitejs/plugin-vue": "^5.2.1",
     "autoprefixer": "^10.4.20",
     "drizzle-kit": "^0.27.1",
     "esbuild": "^0.24.0",
