@@ -14,7 +14,7 @@ export default function Home() {
       <section 
         className="relative min-h-[100svh] flex items-center justify-center text-white pt-20 pb-12 md:py-0 overflow-hidden" 
         style={{
-          backgroundImage: "linear-gradient(rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.4) 100%), url('/assets/hero page image.webp')",
+          backgroundImage: "linear-gradient(rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.4) 100%), url('/assets/hero-page.webp')",
           backgroundPosition: 'center',
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
