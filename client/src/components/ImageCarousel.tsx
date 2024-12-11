@@ -7,7 +7,7 @@ import {
 import useEmblaCarousel, { type EmblaCarouselType } from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 
-// WebP optimized images for better performance
+// Collection images for the carousel
 const images = [
   "/collection 1.webp",
   "/collection2.jpeg",
